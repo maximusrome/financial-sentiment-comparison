@@ -1,0 +1,27 @@
+{
+  "config": {
+    "model_name": "ProsusAI/finbert",
+    "output_name": "finbert_finetuned",
+    "max_length": 128,
+    "batch_size": 16,
+    "learning_rate": 1e-05,
+    "num_epochs": 3,
+    "weight_decay": 0.01,
+    "warmup_ratio": 0.1,
+    "seed": 42,
+    "predictions_path": "predictions/finbert_finetuned_predictions.csv",
+    "metrics_path": "results/tables/finbert_finetuned_metrics.json",
+    "model_save_dir": null
+  },
+  "train_losses": [
+    0.4808440564646701,
+    0.21239213166712237,
+    0.12174411156514953
+  ],
+  "best_epoch": 3,
+  "best_val_acc": 0.8801652892561983,
+  "best_val_f1": 0.8725604861827773,
+  "test_acc": 0.871900826446281,
+  "test_f1": 0.8599450803555925,
+  "elapsed_seconds": 269.2474277019501
+}

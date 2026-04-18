@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# Jupyter
+*.nbconvert.ipynb
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+
+# ML artifacts we do NOT want in git (too large or ephemeral)
+*.pt
+*.bin
+*.safetensors
+results/figures/.cache/
+predictions/sweep/*.csv       # individual sweep runs; only final predictions are committed
+results/tables/sweep/*.json
+
+# Model checkpoints saved by `cfg.model_save_dir`
+checkpoints/
