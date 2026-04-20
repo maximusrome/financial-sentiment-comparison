@@ -1,0 +1,28 @@
+{
+  "config": {
+    "model_name": "google-bert/bert-base-uncased",
+    "output_name": "bert_finetuned",
+    "max_length": 128,
+    "batch_size": 16,
+    "learning_rate": 1e-05,
+    "num_epochs": 4,
+    "weight_decay": 0.01,
+    "warmup_ratio": 0.1,
+    "seed": 42,
+    "predictions_path": "predictions/bert_finetuned_predictions.csv",
+    "metrics_path": "results/tables/bert_finetuned_metrics.json",
+    "model_save_dir": null
+  },
+  "train_losses": [
+    0.7420072317862314,
+    0.36727710864083335,
+    0.2265019953897423,
+    0.16789864715619768
+  ],
+  "best_epoch": 3,
+  "best_val_acc": 0.8512396694214877,
+  "best_val_f1": 0.8357508600791453,
+  "test_acc": 0.8347107438016529,
+  "test_f1": 0.8093100819515914,
+  "elapsed_seconds": 394.2014434337616
+}
