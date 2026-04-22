@@ -23,7 +23,9 @@ How do domain-specific NLP approaches compare to general-purpose ones for financ
 
 ## How to run
 
-All four models' predictions are already committed to `predictions/`. To reproduce the report's tables and figures, open `notebooks/analysis.ipynb` in Colab and Run All (CPU, ~30 seconds).
+All four models' predictions are already committed to predictions/. To reproduce the report's tables and figures, open the analysis notebook in Colab and Runtime → Run all (CPU, ~30 seconds):
+https://colab.research.google.com/github/maximusrome/financial-sentiment-comparison/blob/main/notebooks/analysis.ipynb
+The first cell clones the repo and installs dependencies automatically. No local setup required.
 
 To re-train any model from scratch:
 
