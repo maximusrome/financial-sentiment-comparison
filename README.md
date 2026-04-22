@@ -23,18 +23,18 @@ How do domain-specific NLP approaches compare to general-purpose ones for financ
 
 ## How to run
 
-Two Colab notebooks, in order:
+All four models' predictions are already committed to `predictions/`. To reproduce the report's tables and figures, open `notebooks/analysis.ipynb` in Colab and Run All (CPU, ~30 seconds).
 
-1. [`notebooks/train_finbert.ipynb`](notebooks/train_finbert.ipynb) — builds the shared train/val/test split, runs a hyperparameter sweep over FinBERT, retrains the best config, and saves predictions to `predictions/finbert_finetuned_predictions.csv`. Requires a GPU runtime (`Runtime → Change runtime type → T4 GPU`).
-2. [`notebooks/analysis.ipynb`](notebooks/analysis.ipynb) — loads predictions from all four models, produces the master comparison table, confusion matrices, agreement-tier breakdown chart, and error analysis. CPU-only.
+To re-train any model from scratch:
 
-To run locally instead:
-```bash
-pip install -r requirements.txt
-python data_loader.py      # build the shared split
-python finbert_train.py    # fine-tune FinBERT
-python evaluation.py       # build the comparison table
-```
+| Notebook                                  | Model                        | GPU? |
+| ----------------------------------------- | ---------------------------- | ---- |
+| `notebooks/logreg_tfidf_base_train.ipynb` | TF-IDF + Logistic Regression | No   |
+| `notebooks/logreg_tfidf_lml_train.ipynb`  | TF-IDF + Loughran-McDonald   | No   |
+| `notebooks/train_bert.ipynb`              | Fine-tuned BERT              | Yes  |
+| `notebooks/train_finbert.ipynb`           | Fine-tuned FinBERT + sweep   | Yes  |
+
+For GPU notebooks, use Colab: `Runtime → Change runtime type → T4 GPU`.
 
 ## Repository layout
 
@@ -42,13 +42,13 @@ python evaluation.py       # build the comparison table
 financial-sentiment-comparison/
 ├── README.md
 ├── requirements.txt
-├── .gitignore
-├── data_loader.py         shared train/val/test split
-├── evaluation.py          metrics + cross-model comparison
-├── finbert_train.py       FinBERT fine-tuning + hyperparameter sweep
-└── notebooks/
-    ├── train_finbert.ipynb     GPU required
-    └── analysis.ipynb          CPU, runs after all predictions are in
+├── data_loader.py              shared train/val/test split
+├── evaluation.py               metrics + cross-model comparison
+├── finbert_train.py            FinBERT fine-tuning + sweep
+├── data/                       splits.parquet + Loughran-McDonald CSV
+├── notebooks/                  4 training notebooks + analysis.ipynb
+├── predictions/                *_predictions.csv (one per model)
+└── results/                    figures/ and tables/
 ```
 
 ## Experimental protocol
